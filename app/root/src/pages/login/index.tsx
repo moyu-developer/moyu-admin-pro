@@ -13,10 +13,32 @@ import {
   Container,
 } from "@mantine/core";
 import { IconBrandTwitter, IconBrandGithub } from "@tabler/icons";
+import { useForm } from "@mantine/form";
+import { showNotification } from '@mantine/notifications';
 import useStyles from "./index.css";
 
 export default function AuthenticationTitle() {
   const { classes } = useStyles();
+
+  const form = useForm({
+    initialValues: { name: "", password: "", remember: true },
+
+    validate: {
+      name: (value) => (value.length < 5 ? "请输入您的用户账号" : null),
+      password: (value) => (value.length > 5 ? null : "请输入您的密码"),
+    },
+  });
+
+  const handleLogin: Parameters<typeof form.onSubmit>[0] = (values) => {
+    const { name, password } = values
+
+    console.log(name, password)
+
+    showNotification({
+      title: '登录成功！',
+      message: '您可以尽情享受系统的一切! 🤥',
+    })
+  }
 
   return (
     <Center className={classes.login}>
@@ -24,7 +46,8 @@ export default function AuthenticationTitle() {
         <Title
           align="center"
           sx={(theme) => ({
-            fontWeight: 900,
+            fontWeight: 500,
+            fontFamily: "Futura",
           })}
         >
           😊 Welcome back!
@@ -40,47 +63,53 @@ export default function AuthenticationTitle() {
           </Anchor>
         </Text>
 
-        <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-          <TextInput label="账号" placeholder="请输入您的账号信息" required />
-          <PasswordInput
-            label="密码"
-            placeholder="请输入账号密码"
-            required
-            mt="md"
-          />
-          <Group position="apart" mt="md">
-            <Checkbox label="记住我" />
-            <Anchor<"a">
-              onClick={(event) => event.preventDefault()}
-              href="#"
-              size="sm"
-            >
-              忘记密码？
-            </Anchor>
-          </Group>
-          <Button fullWidth mt="xl">
-            立即出发
-          </Button>
+        <form onSubmit={form.onSubmit(handleLogin)}>
+          <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+            <TextInput
+              label="账号"
+              placeholder="请输入您的账号信息"
+              {...form.getInputProps("name")}
+            />
+            <PasswordInput
+              label="密码"
+              placeholder="请输入账号密码"
+              mt="md"
+              {...form.getInputProps("password")}
+            />
+            <Group position="apart" mt="md">
+              <Checkbox label="记住登录的信息" {...form.getInputProps("remember", { type: 'checkbox' })} />
+              <Anchor<"a">
+                onClick={(event) => event.preventDefault()}
+                href="#"
+                size="sm"
+              >
+                忘记密码？
+              </Anchor>
+            </Group>
+            <Button fullWidth mt="xl" type="submit">
+              立即出发
+            </Button>
 
-          <Divider
-            label="或者使用第三方账号开始"
-            labelPosition="center"
-            my="lg"
-          />
-          <Group grow mb="md" mt="md">
-            <Button
-              leftIcon={<IconBrandGithub />}
-              uppercase
-              radius="md"
-              variant="outline"
-            >
-              Google
-            </Button>
-            <Button leftIcon={<IconBrandTwitter />} uppercase radius="md">
-              Twitter
-            </Button>
-          </Group>
-        </Paper>
+            <Divider
+              label="或者使用第三方账号开始"
+              labelPosition="center"
+              my="lg"
+            />
+            <Group grow mb="md" mt="md">
+              <Button
+                leftIcon={<IconBrandGithub />}
+                uppercase
+                radius="md"
+                variant="outline"
+              >
+                Google
+              </Button>
+              <Button leftIcon={<IconBrandTwitter />} uppercase radius="md">
+                Twitter
+              </Button>
+            </Group>
+          </Paper>
+        </form>
       </Container>
     </Center>
   );
