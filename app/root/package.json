@@ -1,15 +1,17 @@
 {
+  "name": "moyu-admin-pro",
   "private": true,
-  "name": "editor",
   "author": "wangly19 <1418202350@qq.com>",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "umi dev",
+    "dev": "cross-env PORT=10010 umi dev",
     "build": "umi build",
     "postinstall": "umi setup",
     "setup": "umi setup",
     "start": "npm run dev"
   },
   "dependencies": {
+    "@tanstack/react-query-devtools": "^4.2.3",
     "@umijs/plugins": "^4.0.19",
     "umi": "^4.0.19"
   },
