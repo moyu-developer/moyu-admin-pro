@@ -1,116 +1,33 @@
-import {
-  TextInput,
-  PasswordInput,
-  Checkbox,
-  Anchor,
-  Paper,
-  Title,
-  Text,
-  Center,
-  Group,
-  Button,
-  Divider,
-  Container,
-} from "@mantine/core";
-import { IconBrandTwitter, IconBrandGithub } from "@tabler/icons";
-import { useForm } from "@mantine/form";
-import { showNotification } from '@mantine/notifications';
-import useStyles from "./index.css";
+import { Container, Heading, Flex, SimpleGrid, VStack, Text, } from "@chakra-ui/react";
+import LoginForm from './LoginForm'
 
-export default function AuthenticationTitle() {
-  const { classes } = useStyles();
-
-  const form = useForm({
-    initialValues: { name: "", password: "", remember: true },
-
-    validate: {
-      name: (value) => (value.length < 5 ? "请输入您的用户账号" : null),
-      password: (value) => (value.length > 5 ? null : "请输入您的密码"),
-    },
-  });
-
-  const handleLogin: Parameters<typeof form.onSubmit>[0] = (values) => {
-    const { name, password } = values
-
-    console.log(name, password)
-
-    showNotification({
-      title: '登录成功！',
-      message: '您可以尽情享受系统的一切! 🤥',
-    })
-  }
-
+export default () => {
   return (
-    <Center className={classes.login}>
-      <Container sx={{ width: "430px" }}>
-        <Title
-          align="center"
-          sx={(theme) => ({
-            fontWeight: 500,
-            fontFamily: "Futura",
-          })}
-        >
-          😊 Welcome back!
-        </Title>
-        <Text color="dimmed" size="sm" align="center" mt={5}>
-          还没有账户吗，创建帐户 ？
-          <Anchor<"a">
-            href="#"
-            size="sm"
-            onClick={(event) => event.preventDefault()}
-          >
-            Create account
-          </Anchor>
-        </Text>
+    <Container
+      maxW="100%"
+      marginInline="auto"
+      bgGradient="linear(to-r, blue.600 50%, white 50%)"
+      height="100vh"
+      centerContent
+    >
+      <SimpleGrid columns={2} width="100%" maxW="8xl" height="100%">
+        <Flex alignItems="center" pl={8} pr={8} justifyContent="flex-start" >
+          <VStack color="whitesmoke" align="flex-start" spacing="4" >
+          <Heading as="h2" size="2xl">
+            (xl) In love w
+          </Heading>
 
-        <form onSubmit={form.onSubmit(handleLogin)}>
-          <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-            <TextInput
-              label="账号"
-              placeholder="请输入您的账号信息"
-              {...form.getInputProps("name")}
-            />
-            <PasswordInput
-              label="密码"
-              placeholder="请输入账号密码"
-              mt="md"
-              {...form.getInputProps("password")}
-            />
-            <Group position="apart" mt="md">
-              <Checkbox label="记住登录的信息" {...form.getInputProps("remember", { type: 'checkbox' })} />
-              <Anchor<"a">
-                onClick={(event) => event.preventDefault()}
-                href="#"
-                size="sm"
-              >
-                忘记密码？
-              </Anchor>
-            </Group>
-            <Button fullWidth mt="xl" type="submit">
-              立即出发
-            </Button>
-
-            <Divider
-              label="或者使用第三方账号开始"
-              labelPosition="center"
-              my="lg"
-            />
-            <Group grow mb="md" mt="md">
-              <Button
-                leftIcon={<IconBrandGithub />}
-                uppercase
-                radius="md"
-                variant="outline"
-              >
-                Google
-              </Button>
-              <Button leftIcon={<IconBrandTwitter />} uppercase radius="md">
-                Twitter
-              </Button>
-            </Group>
-          </Paper>
-        </form>
-      </Container>
-    </Center>
+          <Heading as="h2" size="2xl">
+            (xl) In l
+          </Heading>
+          <Text maxW="md" mt={6} >Create an account and discover the worlds' best UI 
+          component framework.</Text>
+          </VStack>
+        </Flex>
+        <Flex alignItems="center" justifyContent="center">
+          <LoginForm/>
+        </Flex>
+      </SimpleGrid>
+    </Container>
   );
-}
+};
