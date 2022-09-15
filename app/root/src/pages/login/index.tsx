@@ -1,5 +1,12 @@
-import { Container, Heading, Flex, SimpleGrid, VStack, Text, } from "@chakra-ui/react";
-import LoginForm from './LoginForm'
+import {
+  Container,
+  Heading,
+  Flex,
+  SimpleGrid,
+  VStack,
+  Text,
+} from "@chakra-ui/react";
+import LoginForm from "./LoginForm";
 
 export default () => {
   return (
@@ -11,21 +18,19 @@ export default () => {
       centerContent
     >
       <SimpleGrid columns={2} width="100%" maxW="8xl" height="100%">
-        <Flex alignItems="center" pl={8} pr={8} justifyContent="flex-start" >
-          <VStack color="whitesmoke" align="flex-start" spacing="4" >
-          <Heading as="h2" size="2xl">
-            (xl) In love w
-          </Heading>
-
-          <Heading as="h2" size="2xl">
-            (xl) In l
-          </Heading>
-          <Text maxW="md" mt={6} >Create an account and discover the worlds' best UI 
-          component framework.</Text>
+        <Flex alignItems="center" pl={8} pr={8} justifyContent="flex-start">
+          <VStack color="whitesmoke" align="flex-start" spacing="4">
+            <Heading as="h2" size="2xl"  maxW="lg">
+              Everything seems to be going well
+            </Heading>
+            <Text maxW="md" mt={6}>
+              Create an account and discover the worlds' best UI component
+              framework.
+            </Text>
           </VStack>
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <LoginForm/>
+          <LoginForm />
         </Flex>
       </SimpleGrid>
     </Container>
