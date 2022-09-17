@@ -1,6 +1,6 @@
 import { Flex, Button, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import { IconHome2, TablerIcon } from "@tabler/icons";
-import useStyled from './styled'
+import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 
 export interface MenuItemProps {
   name: string;
@@ -9,8 +9,8 @@ export interface MenuItemProps {
 }
 
 const MenuItem = (props: MenuItemProps) => {
-  const { fontColor, bg, active } = useStyled()
-  
+  const { color, bg, active } = useThemeModeStyle();
+
   const activeBg = props.isActive ? active : bg;
 
   return (
@@ -22,9 +22,10 @@ const MenuItem = (props: MenuItemProps) => {
       bg={activeBg}
       color="gray.500"
       _hover={{ bg: active }}
+      overflow="hidden"
     >
       <Icon as={props?.icon} fontSize="24" />
-      <Text ml={2} color={fontColor} fontWeight={500}>
+      <Text  ml={2} color={color} fontWeight={500}>
         {props.name}
       </Text>
     </Flex>

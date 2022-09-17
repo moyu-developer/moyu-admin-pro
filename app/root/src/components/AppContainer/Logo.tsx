@@ -9,7 +9,7 @@ export default () => {
         Moyu Pro
        
       </Heading>
-       <Badge ml="1" colorScheme="blue">
+       <Badge ml="1" colorScheme="pink">
           v0.0.1-beta
         </Badge>
     </Flex>
