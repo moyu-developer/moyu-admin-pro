@@ -11,8 +11,13 @@ import Profile from './Profile'
 import Logo from "./Logo";
 import ToolBar from "./ToolBar";
 import useThemeModeStyle from "@/hooks/useThemeModeStyle";
+import { Outlet } from "@/.umi/exports";
 
-const AppContainer = () => {
+export interface AppContainerProps {
+  children?: React.ReactNode
+}
+
+const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
   const { bg, color } = useThemeModeStyle()
 
   return (
@@ -27,14 +32,14 @@ const AppContainer = () => {
             <Profile/>
           </Box>
           <Box h="auto" w="full" >
-            <Divider mb={6} mt={4} />
+            <Divider mb={4} mt={4} />
             <UserProfile />
             <ToolBar/>
           </Box>
         </Flex>
       </Box>
-      <Box flex="1" w="full">
-        1111
+      <Box flex="1" w="full" p={4} color={color} >
+        <Outlet/>
       </Box>
     </Flex>
   );
