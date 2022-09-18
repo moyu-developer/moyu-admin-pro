@@ -1,10 +1,5 @@
-
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
 
 export function rootContainer(container: any) {
-  
-  return (<ChakraProvider>
-    {container}
-    </ChakraProvider>
-  )
+  return <ChakraProvider>{container}</ChakraProvider>;
 }

@@ -1,3 +1,10 @@
-type ThemeColorsTokenType = [(string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?, (string | undefined)?]
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-export const pink: ThemeColorsTokenType = ["#FAEAF2","#F2C4DC","#EA9FC5","#E279AF","#D95398","#D12E82","#A72568","#7E1B4E","#541234","#2A091A"]
+const config: ThemeConfig = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+}
+
+const theme = extendTheme({ config })
+
+export default theme
