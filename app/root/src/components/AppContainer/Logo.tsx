@@ -6,7 +6,7 @@ export default () => {
   return (
     <Flex align="center" justify="space-between" >
       <Heading as="h4" size="md" color={fontColor} >
-        Moyu Pro
+        Moyu Chakra
        
       </Heading>
        <Badge ml="1" colorScheme="pink">

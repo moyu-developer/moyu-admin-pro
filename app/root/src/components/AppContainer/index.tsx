@@ -4,6 +4,7 @@ import {
   Box,
   useColorModeValue,
   Divider,
+  Container,
 } from "@chakra-ui/react";
 import Navbar from "./NavBar";
 import UserProfile from "./UserProfile";
@@ -21,8 +22,8 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
   const { bg, color } = useThemeModeStyle()
 
   return (
-    <Flex color="white" bg="gray.50" h="100vh">
-      <Box maxW="300" boxShadow="sm" color={color} p={[8, 6, 8, 6]} bg={bg}>
+    <Flex maxW="full" bg="gray.50" h="100vh" color={color} >
+      <Box maxW="300px" boxShadow="sm"  p={[8, 6, 8, 6]} bg={bg}>
         <Flex flexDirection="column" h="100%" w="full" alignItems="flex-start">
           <Box h={30} w="full">
             <Logo />
@@ -38,9 +39,9 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
           </Box>
         </Flex>
       </Box>
-      <Box flex="1" w="full" p={4} color={color} >
+      <Container h="full" maxW="7xl" p={6} >
         <Outlet/>
-      </Box>
+      </Container>
     </Flex>
   );
 };
