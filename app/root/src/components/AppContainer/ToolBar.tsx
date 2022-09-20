@@ -4,10 +4,10 @@ import {
   IconButton,
   Icon,
   useColorMode,
-  MenuButton,
-  MenuList,
-  Menu,
-  MenuItem,
+  Popover,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
 } from "@chakra-ui/react";
 import {
   IconSearch,
@@ -16,16 +16,21 @@ import {
   IconHelp,
   IconMoon,
   IconLanguage,
-  IconBug
 } from "@tabler/icons";
+import { useRef } from "react";
+import Settings, { SettingDrawerInstance } from "./Settings";
 
 const ToolBar = () => {
-  const active = useColorModeValue("gray.100", "gray.700");
+  const settingDrawerInstance = useRef<SettingDrawerInstance>(null)
+  const active = useColorModeValue("gray.100", "gray.700")
 
   const { colorMode, toggleColorMode } = useColorMode();
 
+  console.log(settingDrawerInstance, 'settingDrawerInstance')
+
   return (
     <HStack>
+      <Settings ref={settingDrawerInstance} />
       <IconButton
         _hover={{ bg: active }}
         aria-label="icon-Search"
@@ -37,6 +42,7 @@ const ToolBar = () => {
       <IconButton
         _hover={{ bg: active }}
         aria-label="icon-Settings"
+        onClick={() => settingDrawerInstance.current?.onOpen()}
         icon={
           <Icon pt={1.5} fontSize="2xl" fontWeight="medium" as={IconSettings} />
         }
@@ -64,22 +70,26 @@ const ToolBar = () => {
         }
         variant="unstyled"
       />
-      
-      <Menu>
-       <MenuButton
-       as={IconButton}
-        _hover={{ bg: active }}
-        aria-label="icon-Language"
-        icon={<Icon pt={1.5} fontSize="2xl" fontWeight="medium" as={IconLanguage} />}
-        variant="unstyled"
-        placement="right"
-      />
-        <MenuList>
-          <MenuItem icon={<IconBug />} command='⌘T'>
-            New Tab
-          </MenuItem>
-        </MenuList>
-      </Menu>
+      <Popover placement="top">
+        <PopoverTrigger>
+          <IconButton
+            _hover={{ bg: active }}
+            aria-label="icon-Help"
+            icon={
+              <Icon
+                pt={1.5}
+                fontSize="2xl"
+                fontWeight="medium"
+                as={IconLanguage}
+              />
+            }
+            variant="unstyled"
+          />
+        </PopoverTrigger>
+        <PopoverContent maxW="100px">
+          <PopoverBody>简体中文</PopoverBody>
+        </PopoverContent>
+      </Popover>
     </HStack>
   );
 };
