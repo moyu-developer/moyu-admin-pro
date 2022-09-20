@@ -1,8 +1,5 @@
 import PageContainer from "@/components/PageContainer";
-import {
-  Box,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Box, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
 import BaseStarCard from "./BaseStarCard";
 
 const stats = [
@@ -15,6 +12,18 @@ const stats = [
 export default () => {
   return (
     <PageContainer>
+      <Box
+        p={4}
+        mb={4}
+        h="200px"
+        w="full"
+        as="section"
+        bg="white"
+        borderRadius="lg"
+        boxShadow={useColorModeValue("sm", "sm-dark")}
+      >
+        11
+      </Box>
       <Box w="full" as="section">
         <SimpleGrid columns={{ base: 1, md: 4 }} gap={{ base: "5", md: "6" }}>
           {stats.map(({ label, value }) => (
