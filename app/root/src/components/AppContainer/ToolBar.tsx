@@ -19,21 +19,23 @@ import {
 } from "@tabler/icons";
 import { useRef } from "react";
 import Settings, { SettingDrawerInstance } from "./Settings";
+import SpotlightModal, { SpotlightModalInstance } from "../Spotlight";
 
 const ToolBar = () => {
   const settingDrawerInstance = useRef<SettingDrawerInstance>(null)
+  const spotlightModalInstance = useRef<SettingDrawerInstance>(null)
   const active = useColorModeValue("gray.100", "gray.700")
 
   const { colorMode, toggleColorMode } = useColorMode();
 
-  console.log(settingDrawerInstance, 'settingDrawerInstance')
-
   return (
     <HStack>
       <Settings ref={settingDrawerInstance} />
+      <SpotlightModal ref={spotlightModalInstance} />
       <IconButton
         _hover={{ bg: active }}
         aria-label="icon-Search"
+        onClick={() => spotlightModalInstance.current?.onOpen && spotlightModalInstance.current?.onOpen()}
         icon={
           <Icon pt={1.5} fontSize="2xl" fontWeight="medium" as={IconSearch} />
         }
@@ -42,7 +44,7 @@ const ToolBar = () => {
       <IconButton
         _hover={{ bg: active }}
         aria-label="icon-Settings"
-        onClick={() => settingDrawerInstance.current?.onOpen()}
+        onClick={() =>  settingDrawerInstance.current?.onOpen && settingDrawerInstance.current?.onOpen()}
         icon={
           <Icon pt={1.5} fontSize="2xl" fontWeight="medium" as={IconSettings} />
         }

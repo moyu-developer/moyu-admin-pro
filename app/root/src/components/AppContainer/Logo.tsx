@@ -1,4 +1,4 @@
-import { Flex, Heading, useColorModeValue, Badge } from "@chakra-ui/react";
+import { Flex, Heading, useColorModeValue, Tag } from "@chakra-ui/react";
 
 export default () => {
   const fontColor = useColorModeValue("gray.700", "white");
@@ -9,9 +9,7 @@ export default () => {
         Moyu Chakra
        
       </Heading>
-       <Badge ml="1" colorScheme="pink">
-          v0.0.1-beta
-        </Badge>
+      <Tag colorScheme="blue" >v0.0.1</Tag>
     </Flex>
   );
 };
