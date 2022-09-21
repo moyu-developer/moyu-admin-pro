@@ -35,18 +35,12 @@ const BaseStatCard = (props: BaseStatCardProps) => {
           {value}
         </Heading>
       </Stack>
-
       <IconButton
         alignSelf="center"
         colorScheme="blue"
         aria-label="Search database"
         icon={<Icon as={IconSearch} />}
       />
-
-      {/* <Box alignSelf="center" h="50px" w="50px" 
-      borderRadius="md" bg="blue.500" color="white" >
-        
-      </Box> */}
     </Flex>
   );
 };
