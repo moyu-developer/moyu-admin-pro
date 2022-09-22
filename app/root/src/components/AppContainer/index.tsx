@@ -41,7 +41,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
           </Box>
         </Flex>
       </Box>
-      <Container h="full" maxW="7xl" p={4} >
+      <Container h="full" maxW="8xl" p={4} >
         <Outlet/>
       </Container>
     </Flex>
