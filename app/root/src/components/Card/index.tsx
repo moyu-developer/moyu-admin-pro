@@ -5,6 +5,7 @@ import {
   BoxProps,
   Text,
   useColorModeValue,
+  Skeleton
 } from "@chakra-ui/react";
 
 export interface CardProps extends BoxProps {
@@ -15,7 +16,8 @@ export interface CardProps extends BoxProps {
 
 const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
   return (
-    <Box
+    <Skeleton
+      isLoaded
       px={{ base: "4", md: "6" }}
       py={{ base: "5", md: "6" }}
       bg="white"
@@ -26,7 +28,7 @@ const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
       <Heading fontSize="md">{title}</Heading>
       <Text mt={4}>{desc}</Text>
       {children}
-    </Box>
+    </Skeleton>
   );
 };
 
