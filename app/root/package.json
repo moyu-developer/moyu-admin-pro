@@ -11,10 +11,10 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "@tanstack/react-query-devtools": "^4.2.3",
     "@umijs/plugins": "^4.0.19",
     "umi": "^4.0.19"
-  },
-  "devDependencies": {
   }
 }
