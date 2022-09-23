@@ -20,13 +20,12 @@ import {
 import { useRef } from "react";
 import Settings, { SettingDrawerInstance } from "./Settings";
 import SpotlightModal, { SpotlightModalInstance } from "../Spotlight";
+import SwitchColorMode from "../SwitchColorMode";
 
 const ToolBar = () => {
   const settingDrawerInstance = useRef<SettingDrawerInstance>(null)
   const spotlightModalInstance = useRef<SettingDrawerInstance>(null)
   const active = useColorModeValue("gray.100", "gray.700")
-
-  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <HStack>
@@ -50,20 +49,7 @@ const ToolBar = () => {
         }
         variant="unstyled"
       />
-      <IconButton
-        _hover={{ bg: active }}
-        aria-label="icon-colorMode"
-        icon={
-          <Icon
-            pt={1.5}
-            fontSize="2xl"
-            fontWeight="medium"
-            as={colorMode === "light" ? IconMoon : IconSun}
-          />
-        }
-        variant="unstyled"
-        onClick={toggleColorMode}
-      />
+      <SwitchColorMode aria-label="SideBar-Color-Mode" />
       <IconButton
         _hover={{ bg: active }}
         aria-label="icon-Help"

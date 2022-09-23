@@ -2,9 +2,9 @@ import * as React from "react";
 import {
   Flex,
   Box,
-  useColorModeValue,
   Divider,
   Container,
+  useToast,
 } from "@chakra-ui/react";
 import Navbar from "./NavBar";
 import UserProfile from "./UserProfile";
@@ -21,6 +21,19 @@ export interface AppContainerProps {
 
 const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
   const { bg, color } = useThemeModeStyle()
+  const toast = useToast()
+
+  React.useEffect(() => {
+    toast({
+      position: 'bottom',
+      duration: null,
+      containerStyle: {
+        width: '100%',
+        maxWidth: '7xl'
+      },
+      render: () => <Banners/>
+    })
+  }, [])
 
   return (
     <Flex maxW="full" bg="gray.50" h="100vh" color={color} >
