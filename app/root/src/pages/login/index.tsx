@@ -5,15 +5,23 @@ import {
   SimpleGrid,
   VStack,
   Text,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import SwitchColorMode from "@/components/SwitchColorMode";
 import LoginForm from "./LoginForm";
 
+
 export default () => {
+  
+  const bgGradient = useColorModeValue("linear(to-r, blue.600 50%, white 50%)", "linear(to-r, blue.600 50%, gray.700 50%)")
+
   return (
     <Container
       maxW="100%"
       marginInline="auto"
-      bgGradient="linear(to-r, blue.600 50%, white 50%)"
+      bgGradient={bgGradient}
       height="100vh"
       centerContent
     >
@@ -29,7 +37,8 @@ export default () => {
             </Text>
           </VStack>
         </Flex>
-        <Flex alignItems="center" justifyContent="center">
+        <Flex alignItems="center" justifyContent="center" position="relative" >
+          <SwitchColorMode size="lg" fontSize="3xl" aria-label="Home-Switch-Color-Mode" position="absolute" top="20px" right="20px" />
           <LoginForm />
         </Flex>
       </SimpleGrid>
