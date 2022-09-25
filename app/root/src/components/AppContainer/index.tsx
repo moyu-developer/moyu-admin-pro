@@ -5,6 +5,7 @@ import {
   Divider,
   Container,
   useToast,
+  ToastId
 } from "@chakra-ui/react";
 import Navbar from "./NavBar";
 import UserProfile from "./UserProfile";
@@ -19,25 +20,25 @@ export interface AppContainerProps {
   children?: React.ReactNode
 }
 
-const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
+const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
   const { bg, color } = useThemeModeStyle()
   const toast = useToast()
+  const toastRef = React.useRef<ToastId>()
 
   React.useEffect(() => {
-    toast({
-      position: 'bottom',
-      duration: null,
-      containerStyle: {
-        width: '100%',
-        maxWidth: '7xl'
-      },
-      render: () => <Banners/>
-    })
+    // toastRef.current = toast({
+    //   position: 'bottom',
+    //   duration: null,
+    //   containerStyle: {
+    //     width: '100%',
+    //     maxWidth: '7xl'
+    //   },
+    //   render: () => <Banners/>
+    // })
   }, [])
 
   return (
     <Flex maxW="full" bg="gray.50" h="100vh" color={color} >
-      {/* <Banners/> */}
       <Box maxW="300px" boxShadow="sm" py={6} bg={bg}>
         <Flex flexDirection="column" h="100%" w="full" alignItems="flex-start">
           <Box h={30} w="full" px={4} >
@@ -54,7 +55,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (props) => {
           </Box>
         </Flex>
       </Box>
-      <Container h="full" maxW="8xl" p={4} >
+      <Container h="full" maxW="8xl" p={4} pt={0} >
         <Outlet/>
       </Container>
     </Flex>
