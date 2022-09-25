@@ -1,11 +1,13 @@
 import Card from "@/components/Card";
 import PageContainer from "@/components/PageContainer";
-import { Box, Flex, Grid, GridItem, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, SimpleGrid, useColorModeValue, VStack } from "@chakra-ui/react";
 import BaseStarCard from "./BaseStarCard";
 import ChartLine from './ChartLine'
 import FastEntryCard from "./FastEntryCard";
 import NoticeCard from './NoticeCard'
 import VersionInfo from './VersionInfo'
+import TaskCard from './TaskCard'
+import HeatChartCard from './HeatChartCard'
 
 const stats = [
   { label: "Total Subscribers", value: "71,887" },
@@ -35,15 +37,24 @@ export default () => {
           ))}
         </SimpleGrid>
       </Box>
-      <Grid templateColumns='repeat(4, 1fr)' gap={{ base: "5", md: "6" }} maxH="300px" >
+      <Grid templateColumns='repeat(4, 1fr)' gap={{ base: "5", md: "6" }} mb={4}  >
         <GridItem w='100%'>
-          <FastEntryCard/>
+        <FastEntryCard/>
         </GridItem>
         <GridItem w='100%'>
           <VersionInfo/>
         </GridItem>
         <GridItem colSpan={2} w='100%'>
           <NoticeCard/>
+        </GridItem>
+      </Grid>
+
+      <Grid templateColumns='repeat(4, 1fr)' gap={{ base: "5", md: "6" }} maxH="300px" >
+        <GridItem w='100%'>
+        <TaskCard/>
+        </GridItem>
+        <GridItem colSpan={3} w='100%'>
+          <HeatChartCard/>
         </GridItem>
       </Grid>
     </PageContainer>

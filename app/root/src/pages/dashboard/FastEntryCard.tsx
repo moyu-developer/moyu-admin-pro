@@ -6,6 +6,9 @@ import {
   Icon,
   Tooltip,
   SimpleGrid,
+  Grid,
+  GridItem,
+  Flex,
 } from "@chakra-ui/react";
 import { IconTerminal2, IconMap } from "@tabler/icons";
 
@@ -25,7 +28,16 @@ const entryOptions = [
 const FastEntry = (props: BoxProps) => {
   return (
     <Card title="快捷入口" {...props}>
-      <SimpleGrid pt={3} columns={4} spacing={4}>
+      <Grid h="150px" templateColumns='repeat(4, 1fr)' gridTemplateRows="repeat(auto-fit, minmax(50px, 50px))" gap={4} >
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+        <GridItem  bg='blue.500' />
+      </Grid>
+      {/* <SimpleGrid pt={3} columns={4} spacing={4} h="150px" >
         <Tooltip label="1">
           <IconButton
             aria-label="1"
@@ -43,7 +55,7 @@ const FastEntry = (props: BoxProps) => {
             icon={<Icon as={IconTerminal2} fontSize="20px" />}
           />
         </Tooltip>
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Card>
   );
 };

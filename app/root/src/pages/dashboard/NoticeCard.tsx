@@ -5,7 +5,7 @@ import { IconReportAnalytics } from "@tabler/icons";
 const NoticeCard = () => {
   return (
     <Card title="通知公告" flex={2} >
-      <List spacing={3}>
+      <List spacing={3} h="150px">
         {
           [1,2,3,4].map((i) => (
             <ListItem key={i} >
