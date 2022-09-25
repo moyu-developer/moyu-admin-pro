@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
-import { IconHash, IconBrandTelegram } from "@tabler/icons"
+import { IconHash, IconCornerDownLeft } from "@tabler/icons"
 
 const SpotlightResultItem = () => {
   return (
@@ -9,7 +9,7 @@ const SpotlightResultItem = () => {
         <Text>1</Text>
         <Text>2</Text>
       </Box>
-      <IconBrandTelegram/>
+      <IconCornerDownLeft/>
     </Flex>
   )
 }

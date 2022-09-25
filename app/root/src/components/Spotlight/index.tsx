@@ -35,7 +35,7 @@ const SpotlightModal = React.forwardRef<SpotlightModalInstance>((_, ref) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="2xl" >
       <ModalOverlay />
-      <ModalContent  >
+      <ModalContent >
         <ModalBody px={4}  >
           <Flex flexDirection="column" >
             <Flex h="50px" alignItems="center" gap="12px" >
