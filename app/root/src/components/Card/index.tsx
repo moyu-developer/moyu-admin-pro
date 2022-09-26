@@ -1,12 +1,16 @@
 import { ReactNode } from "react";
 import {
-  Box,
+  IconButton,
+  Icon,
   Heading,
   BoxProps,
   Text,
   useColorModeValue,
-  Skeleton
+  Skeleton,
+  Flex
 } from "@chakra-ui/react";
+
+import { IconDots } from '@tabler/icons'
 
 export interface CardProps extends BoxProps {
   title?: string;
@@ -18,14 +22,17 @@ const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
   return (
     <Skeleton
       isLoaded
-      px={{ base: "4", md: "6" }}
-      py={{ base: "5", md: "6" }}
+      px={{ base: "4", md: "4" }}
+      py={{ base: "5", md: "5" }}
       bg="white"
       borderRadius="lg"
       boxShadow={useColorModeValue("sm", "sm-dark")}
       {...rest}
     >
-      <Heading fontSize="md">{title}</Heading>
+      <Flex justifyContent="space-between" alignItems="baseline" >
+        <Heading  fontSize="md">{title}</Heading>
+        <IconButton size="sm" variant="ghost" aria-label="Card-Dots" icon={<Icon as={IconDots} />} />
+      </Flex>
       <Text mt={4}>{desc}</Text>
       {children}
     </Skeleton>

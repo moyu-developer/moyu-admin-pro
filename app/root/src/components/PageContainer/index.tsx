@@ -23,7 +23,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   return (
     <Box w="full" h="full">
       <Grid gridTemplateRows={"85px 1fr"} h="full">
-        <Flex justifyContent="space-between" alignItems="flex-start">
+        <Flex justifyContent="space-between" alignItems="center">
           <VStack alignItems="flex-start" spacing={1}>
             <Text color={color} fontWeight="medium" fontSize="3xl" mt={1}>
               仪表盘

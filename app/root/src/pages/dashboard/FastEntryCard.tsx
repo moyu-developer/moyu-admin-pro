@@ -5,7 +5,7 @@ import {
   IconButton,
   Icon,
   Tooltip,
-  SimpleGrid,
+  Center,
   Grid,
   GridItem,
   Flex,
@@ -28,14 +28,66 @@ const entryOptions = [
 const FastEntry = (props: BoxProps) => {
   return (
     <Card title="快捷入口" {...props}>
-      <Grid h="150px" templateColumns='repeat(4, 1fr)' gridTemplateRows="repeat(auto-fit, minmax(50px, 50px))" gap={4} >
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
-        <GridItem  bg='blue.500' />
+      <Grid h="150px" templateColumns='repeat(5, 1fr)' gridTemplateRows="repeat(auto-fit, minmax(50px, 50px))">
+      <GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem>
+
+      <GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem>
+        <GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem>
+        <GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem><GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem><GridItem as={Center}>
+          <Tooltip label="1">
+            <IconButton
+              aria-label="1"
+              alignSelf="center"
+              bg="gray.100"
+              icon={<Icon as={IconMap} fontSize="20px" />}
+            />
+          </Tooltip>
+        </GridItem>
       </Grid>
       {/* <SimpleGrid pt={3} columns={4} spacing={4} h="150px" >
         <Tooltip label="1">
