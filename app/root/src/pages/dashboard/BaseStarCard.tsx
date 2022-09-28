@@ -1,3 +1,4 @@
+import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 import {
   Box,
   Flex,
@@ -17,11 +18,14 @@ interface BaseStatCardProps {
 }
 const BaseStatCard = (props: BaseStatCardProps) => {
   const { label, value, ...boxProps } = props;
+
+  const { bg } = useThemeModeStyle()
+
   return (
     <Flex
-      px={{ base: "4", md: "6" }}
-      py={{ base: "5", md: "6" }}
-      bg="white"
+      px={{ base: "4", md: "4" }}
+      py={{ base: "3", md: "3" }}
+      bg={bg}
       borderRadius="lg"
       boxShadow={useColorModeValue("sm", "sm-dark")}
       justifyContent="space-between"

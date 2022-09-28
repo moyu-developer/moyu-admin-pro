@@ -8,6 +8,7 @@ import NoticeCard from './NoticeCard'
 import VersionInfo from './VersionInfo'
 import TaskCard from './TaskCard'
 import HeatChartCard from './HeatChartCard'
+import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 
 const stats = [
   { label: "Total Subscribers", value: "71,887" },
@@ -17,14 +18,17 @@ const stats = [
 ];
 
 export default () => {
+
+  const { bg } = useThemeModeStyle()
+
   return (
-    <PageContainer>
+    <PageContainer title="仪表盘" description="描述文案"  >
       <Box
         mb={4}
         h="350px"
         w="full"
         as="section"
-        bg="white"
+        bg={bg}
         borderRadius="lg"
         boxShadow={useColorModeValue("sm", "sm-dark")}
       >

@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 
 import { IconDots } from '@tabler/icons'
+import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 
 export interface CardProps extends BoxProps {
   title?: string;
@@ -19,12 +20,15 @@ export interface CardProps extends BoxProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
+
+  const { bg } = useThemeModeStyle()
+
   return (
     <Skeleton
       isLoaded
       px={{ base: "4", md: "4" }}
-      py={{ base: "5", md: "5" }}
-      bg="white"
+      py={{ base: "3", md: "3" }}
+      bg={bg}
       borderRadius="lg"
       boxShadow={useColorModeValue("sm", "sm-dark")}
       {...rest}

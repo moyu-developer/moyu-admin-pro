@@ -8,37 +8,44 @@ import {
   Flex,
   Box,
   HStack,
+  BoxProps,
 } from "@chakra-ui/react";
 import SpinnerContainer from "@/components/SpinnerContainer";
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 
-export interface PageContainerProps {
+export interface PageContainerProps  extends BoxProps{
   children: ReactNode;
+  title?: string;
+  description?: string;
+  extraNode?: ReactNode
 }
 
-const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { color, bg } = useThemeModeStyle();
+const PageContainer: React.FC<PageContainerProps> = ({ children, title, description, extraNode,  ...boxProps }) => {
+  const { color } = useThemeModeStyle();
+
+  if (!title) {
+    return <Fragment>{children}</Fragment>
+  }
 
   return (
-    <Box w="full" h="full">
-      <Grid gridTemplateRows={"85px 1fr"} h="full">
-        <Flex justifyContent="space-between" alignItems="center">
+    <Box w="full" h="full" {...boxProps} >
+      <Grid gridTemplateRows={"auto 1fr"} h="full">
+        <Flex pb={4} justifyContent="space-between" alignItems="center">
           <VStack alignItems="flex-start" spacing={1}>
-            <Text color={color} fontWeight="medium" fontSize="3xl" mt={1}>
-              仪表盘
+            <Text color={color} fontWeight="medium" fontSize="3xl">
+              {title}
             </Text>
             <Text color={color} mt={1}>
-              不要错过重要的信息
+              {description}
             </Text>
           </VStack>
           <HStack>
-            <Button>操作1</Button>
-            <Button colorScheme="blue">操作2</Button>
+            {extraNode}
           </HStack>
         </Flex>
         <Box h="100%" boxShadow={2} overflow="auto">
-          {props.children}
+          {children}
         </Box>
       </Grid>
     </Box>
