@@ -7,10 +7,10 @@ import {
   Text,
   useColorModeValue,
   Skeleton,
-  Flex
+  Flex,
 } from "@chakra-ui/react";
 
-import { IconDots } from '@tabler/icons'
+import { IconDots } from "@tabler/icons";
 import useThemeModeStyle from "@/hooks/useThemeModeStyle";
 
 export interface CardProps extends BoxProps {
@@ -20,8 +20,7 @@ export interface CardProps extends BoxProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
-
-  const { bg } = useThemeModeStyle()
+  const { bg } = useThemeModeStyle();
 
   return (
     <Skeleton
@@ -33,11 +32,18 @@ const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
       boxShadow={useColorModeValue("sm", "sm-dark")}
       {...rest}
     >
-      <Flex justifyContent="space-between" alignItems="baseline" >
-        <Heading  fontSize="md">{title}</Heading>
-        <IconButton size="sm" variant="ghost" aria-label="Card-Dots" icon={<Icon as={IconDots} />} />
-      </Flex>
-      <Text mt={4}>{desc}</Text>
+      {title ? (
+        <Flex justifyContent="space-between" alignItems="baseline">
+          <Heading fontSize="md">{title}</Heading>
+          <IconButton
+            size="sm"
+            variant="ghost"
+            aria-label="Card-Dots"
+            icon={<Icon as={IconDots} />}
+          />
+        </Flex>
+      ) : null}
+      {desc ? <Text mt={4}>{desc}</Text> : null}
       {children}
     </Skeleton>
   );

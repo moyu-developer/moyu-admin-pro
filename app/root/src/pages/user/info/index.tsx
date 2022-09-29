@@ -23,6 +23,7 @@ import {
 import PageContainer from "@/components/PageContainer";
 import Card from "@/components/Card";
 import { IconBuilding, IconLink, IconMapPin, IconUser } from "@tabler/icons";
+import ChangePassword from './ChangePassword'
 
 const UserInfo = () => {
   return (
@@ -80,12 +81,13 @@ const UserInfo = () => {
           </Card>
         </GridItem>
         <GridItem colSpan={3} w="100%">
-          <Card title="Edit">
-            <Tabs>
+          <Card>
+            <Tabs variant='enclosed' >
               <TabList>
-                <Tab>One</Tab>
-                <Tab>Two</Tab>
-                <Tab>Three</Tab>
+                <Tab>
+                  信息修改
+                </Tab>
+                <Tab>修改密码</Tab>
               </TabList>
 
               <TabPanels>
@@ -93,10 +95,7 @@ const UserInfo = () => {
                   <p>one!</p>
                 </TabPanel>
                 <TabPanel>
-                  <p>two!</p>
-                </TabPanel>
-                <TabPanel>
-                  <p>three!</p>
+                  <ChangePassword/>
                 </TabPanel>
               </TabPanels>
             </Tabs>
