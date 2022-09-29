@@ -26,15 +26,6 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
   const toastRef = React.useRef<ToastId>()
 
   React.useEffect(() => {
-    // toastRef.current = toast({
-    //   position: 'bottom',
-    //   duration: null,
-    //   containerStyle: {
-    //     width: '100%',
-    //     maxWidth: '7xl'
-    //   },
-    //   render: () => <Banners/>
-    // })
   }, [])
 
   return (

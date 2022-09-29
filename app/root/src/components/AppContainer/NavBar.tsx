@@ -11,7 +11,7 @@ import MenuItem, { MenuItemProps } from "./MenuItem";
 
 const items: MenuItemProps[] = [
   {
-    name: "IconHome2",
+    name: "权限管理",
     icon: IconHome2,
   },
 
