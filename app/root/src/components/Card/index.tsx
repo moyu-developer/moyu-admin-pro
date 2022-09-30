@@ -17,10 +17,12 @@ export interface CardProps extends BoxProps {
   title?: string;
   desc?: string;
   children?: ReactNode;
+  hasShadow?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
+const Card: React.FC<CardProps> = ({ title, desc, children, hasShadow, ...rest }) => {
   const { bg } = useThemeModeStyle();
+  const boxShadow = useColorModeValue("sm", "sm-dark")
 
   return (
     <Skeleton
@@ -29,7 +31,7 @@ const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
       py={{ base: "3", md: "3" }}
       bg={bg}
       borderRadius="lg"
-      boxShadow={useColorModeValue("sm", "sm-dark")}
+      boxShadow={hasShadow ? boxShadow : undefined}
       {...rest}
     >
       {title ? (
@@ -48,5 +50,9 @@ const Card: React.FC<CardProps> = ({ title, desc, children, ...rest }) => {
     </Skeleton>
   );
 };
+
+Card.defaultProps = {
+  hasShadow: true
+}
 
 export default Card;

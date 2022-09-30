@@ -24,6 +24,8 @@ import PageContainer from "@/components/PageContainer";
 import Card from "@/components/Card";
 import { IconBuilding, IconLink, IconMapPin, IconUser } from "@tabler/icons";
 import ChangePassword from './ChangePassword'
+import RelationshipUser from './RelationshipUser'
+import Security from './Security'
 
 const UserInfo = () => {
   return (
@@ -85,14 +87,13 @@ const UserInfo = () => {
             <Tabs variant='enclosed' >
               <TabList>
                 <Tab>
-                  信息修改
+                  个人信息
                 </Tab>
                 <Tab>修改密码</Tab>
               </TabList>
-
               <TabPanels>
                 <TabPanel>
-                  <p>one!</p>
+                  <Security/>
                 </TabPanel>
                 <TabPanel>
                   <ChangePassword/>
