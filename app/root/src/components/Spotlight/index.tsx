@@ -3,16 +3,11 @@ import {
   Box,
   Divider,
   Flex,
-  Icon,
+  Kbd,
   Input,
-  InputGroup,
-  InputLeftElement,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
   useDisclosure,
   VStack,
@@ -40,9 +35,9 @@ const SpotlightModal = React.forwardRef<SpotlightModalInstance>((_, ref) => {
           <Flex flexDirection="column" >
             <Flex h="50px" alignItems="center" gap="12px" >
               <IconSearch />
-              <Input variant="unstyled"  placeholder="查询弹窗" />
+              <Input flex={1} variant="unstyled"  placeholder="查询弹窗" />
+              <Box><Kbd>SHIFT</Kbd> + <Kbd>L</Kbd></Box>
             </Flex>
-            
             <VStack flex={1} maxW="60vh" pb={4} display="none" >
             <Divider/>  
               <SpotlightResultItem/>
