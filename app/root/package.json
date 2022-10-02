@@ -16,6 +16,7 @@
     "@nivo/line": "^0.80.0",
     "@tanstack/react-query-devtools": "^4.2.3",
     "@umijs/plugins": "^4.0.19",
+    "ahooks": "^3.7.1",
     "umi": "^4.0.19"
   }
 }

@@ -84,10 +84,10 @@ const UserInfo = () => {
         </GridItem>
         <GridItem colSpan={3} w="100%">
           <Card>
-            <Tabs variant='enclosed' >
+            <Tabs size="md" variant="solid-rounded" >
               <TabList>
                 <Tab>
-                  个人信息
+                  安全设置
                 </Tab>
                 <Tab>修改密码</Tab>
               </TabList>

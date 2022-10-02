@@ -21,7 +21,7 @@ export interface AppContainerProps {
 }
 
 const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
-  const { bg, color } = useThemeModeStyle()
+  const { bg, color, active } = useThemeModeStyle()
   const toast = useToast()
   const toastRef = React.useRef<ToastId>()
 
@@ -29,7 +29,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
   }, [])
 
   return (
-    <Flex maxW="full" bg="gray.50" h="100vh" color={color} >
+    <Flex maxW="full" bg={active} h="100vh" color={color} >
       <Box maxW="300px" boxShadow="sm" py={6} bg={bg}>
         <Flex flexDirection="column" h="100%" w="full" alignItems="flex-start">
           <Box h={30} w="full" px={4} >

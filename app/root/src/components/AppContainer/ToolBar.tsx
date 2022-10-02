@@ -17,15 +17,20 @@ import {
   IconMoon,
   IconLanguage,
 } from "@tabler/icons";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Settings, { SettingDrawerInstance } from "./Settings";
 import SpotlightModal, { SpotlightModalInstance } from "../Spotlight";
 import SwitchColorMode from "../SwitchColorMode";
+import { useKeyPress } from 'ahooks'
 
 const ToolBar = () => {
   const settingDrawerInstance = useRef<SettingDrawerInstance>(null)
   const spotlightModalInstance = useRef<SettingDrawerInstance>(null)
   const active = useColorModeValue("gray.100", "gray.700")
+
+  useKeyPress(['shift.l'], () => {
+    spotlightModalInstance.current?.onOpen && spotlightModalInstance.current?.onOpen()
+  });
 
   return (
     <HStack>
