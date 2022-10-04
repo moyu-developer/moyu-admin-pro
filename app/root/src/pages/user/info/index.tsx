@@ -30,7 +30,7 @@ import Security from './Security'
 const UserInfo = () => {
   return (
     <PageContainer>
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Grid templateColumns="repeat(4, 1fr)" gap={4}>
         <GridItem colSpan={1} w="100%">
           <Card>
             <VStack mb={4}>
