@@ -84,7 +84,7 @@ const UserInfo = () => {
         </GridItem>
         <GridItem colSpan={3} w="100%">
           <Card>
-            <Tabs size="md" variant="solid-rounded" >
+            <Tabs size="md" variant="soft-rounded" >
               <TabList>
                 <Tab>
                   安全设置

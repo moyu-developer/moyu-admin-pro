@@ -32,10 +32,10 @@ const Certification = () => {
       <Box p={4} w="full" bg={active} borderRadius="lg">
         <ShowElement visible empty={<Empty/>} >
           <VStack spacing={4} >
-          <Flex>
+          <Flex justifyContent="flex-start" w="full" >
             <Text fontWeight="medium" >登录密码</Text>
-            <Text color="gray.500" px={4} flex={1} >已设置。密码至少6位字符，支持数字、字母和除空格外的特殊字符，且必须同时包含数字和大小写字母。</Text>
-            <Button size="xs" colorScheme="red" >修改</Button>
+            <Text color="gray.500" px={4} flex={1} >已设置。</Text>
+            <Button justifySelf="flex-end" size="xs" colorScheme="red" >修改</Button>
           </Flex>
           <Flex>
             <Text fontWeight="medium" >手机号码</Text>
