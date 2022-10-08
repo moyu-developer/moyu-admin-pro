@@ -23,13 +23,11 @@ import {
 import PageContainer from "@/components/PageContainer";
 import Card from "@/components/Card";
 import { IconBuilding, IconLink, IconMapPin, IconUser } from "@tabler/icons";
-import ChangePassword from './ChangePassword'
-import RelationshipUser from './RelationshipUser'
 import Security from './Security'
 
 const UserInfo = () => {
   return (
-    <PageContainer>
+    <PageContainer title="我的信息" >
       <Grid templateColumns="repeat(4, 1fr)" gap={4}>
         <GridItem colSpan={1} w="100%">
           <Card>
@@ -83,8 +81,9 @@ const UserInfo = () => {
           </Card>
         </GridItem>
         <GridItem colSpan={3} w="100%">
-          <Card>
-            <Tabs size="md" variant="soft-rounded" >
+          <Card title="用户安全" >
+          <Security/>
+            {/* <Tabs size="md" variant="soft-rounded" >
               <TabList>
                 <Tab>
                   安全设置
@@ -99,7 +98,7 @@ const UserInfo = () => {
                   <ChangePassword/>
                 </TabPanel>
               </TabPanels>
-            </Tabs>
+            </Tabs> */}
           </Card>
         </GridItem>
       </Grid>

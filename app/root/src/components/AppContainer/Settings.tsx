@@ -9,6 +9,9 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Input,
+  Tab,
+  TabList,
+  Tabs,
   useDisclosure,
 } from "@chakra-ui/react";
 
@@ -29,7 +32,9 @@ const SettingDrawer = React.forwardRef<SettingDrawerInstance>((_, ref) => {
       <DrawerContent>
         <DrawerCloseButton />
         <DrawerHeader>设置中心</DrawerHeader>
-        <DrawerBody>
+        <DrawerBody
+        >
+          1
         </DrawerBody>
         <DrawerFooter>
           <Button variant="outline" mr={3} onClick={onClose}>

@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   Skeleton,
   Flex,
+  Box,
 } from "@chakra-ui/react";
 
 import { IconDots } from "@tabler/icons";
@@ -20,15 +21,21 @@ export interface CardProps extends BoxProps {
   hasShadow?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, desc, children, hasShadow, ...rest }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  desc,
+  children,
+  hasShadow,
+  ...rest
+}) => {
   const { bg } = useThemeModeStyle();
-  const boxShadow = useColorModeValue("sm", "sm-dark")
+  const boxShadow = useColorModeValue("sm", "sm-dark");
 
   return (
     <Skeleton
       isLoaded
-      px={{ base: "4", md: "4" }}
-      py={{ base: "3", md: "3" }}
+      px={{ base: "6", md: "6" }}
+      py={{ base: "4", md: "4" }}
       bg={bg}
       borderRadius="lg"
       boxShadow={hasShadow ? boxShadow : undefined}
@@ -36,23 +43,24 @@ const Card: React.FC<CardProps> = ({ title, desc, children, hasShadow, ...rest }
     >
       {title ? (
         <Flex justifyContent="space-between" alignItems="baseline">
-          <Heading fontSize="md">{title}</Heading>
+          <Heading fontSize="lg">{title}</Heading>
           <IconButton
             size="sm"
             variant="ghost"
             aria-label="Card-Dots"
+            fontSize="lg"
             icon={<Icon as={IconDots} />}
           />
         </Flex>
       ) : null}
-      {desc ? <Text mt={4}>{desc}</Text> : null}
-      {children}
+      {desc ? <Text color="gray.500">{desc}</Text> : null}
+      <Box mt={4}>{children}</Box>
     </Skeleton>
   );
 };
 
 Card.defaultProps = {
-  hasShadow: true
-}
+  hasShadow: true,
+};
 
 export default Card;
