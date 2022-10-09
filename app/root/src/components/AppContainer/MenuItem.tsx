@@ -24,8 +24,8 @@ const MenuItem = (props: MenuItemProps) => {
       _hover={{ bg: active }}
       overflow="hidden"
     >
-      <Icon as={props?.icon} fontSize="2xl" />
-      <Text fontSize="md" ml={2} color={color} fontWeight="normal">
+      <Icon as={props?.icon} fontSize="xl" />
+      <Text fontSize="base" ml={2} color={color} fontWeight="normal">
         {props.name}
       </Text>
     </Flex>

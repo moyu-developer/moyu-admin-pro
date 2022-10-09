@@ -33,7 +33,14 @@ const items: MenuItemProps[] = [
 const NavBar = () => {
   return (
     <VStack spacing="1">
-      <Text w="full" fontSize="sm" color="gray.500" fontWeight={500} pb={0.5}>
+      <Text
+        w="full"
+        px={4}
+        fontSize="sm"
+        // color="gray.500"
+        fontWeight={500}
+        pb={1}
+      >
         User
       </Text>
       {items.map((item) => (
@@ -47,12 +54,13 @@ const NavBar = () => {
       <Text
         w="full"
         pt={8}
+        px={4}
         fontSize="sm"
-        color="gray.500"
+        // color="gray.500"
         fontWeight={500}
-        pb={0.5}
+        pb={1}
       >
-        System
+        系统应用
       </Text>
       {items.map((item) => (
         <MenuItem key={item.name} name={item.name} icon={item.icon} />

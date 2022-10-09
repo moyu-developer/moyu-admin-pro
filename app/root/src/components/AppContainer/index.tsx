@@ -35,7 +35,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
           <Box h={30} w="full" px={4} >
             <Logo />
           </Box>
-          <Box flex={1} pt={6} w="full" overflowY="auto" px={6} >
+          <Box flex={1} pt={6} w="full" overflowY="auto" px={4} >
             <Navbar />
             <Profile/>
           </Box>
@@ -46,7 +46,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = (  ) => {
           </Box>
         </Flex>
       </Box>
-      <Container h="full" maxW="8xl" p={4} >
+      <Container h="full"  p={4}   maxW="full" >
         <Outlet/>
       </Container>
     </Flex>
