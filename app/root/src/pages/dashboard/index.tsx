@@ -34,7 +34,7 @@ export default () => {
       description="描述文案"
       extraNode={
         <Button
-          colorScheme="teal"
+          colorScheme="blue"
           size="sm"
           variant="solid"
           leftIcon={<Icon as={IconRefresh} fontWeight="bold" fontSize="md" />}
