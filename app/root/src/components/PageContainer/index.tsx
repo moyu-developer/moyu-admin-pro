@@ -47,7 +47,7 @@ const PageContainer: React.FC<PageContainerProps> = ({
 
   return (
     <Box w="full" h="full" {...boxProps}>
-      <Grid gridTemplateRows={"auto auto 1fr"} h="full">
+      <Grid gridTemplateRows={"auto 1fr"} h="full">
         <Flex pb={4} justifyContent="space-between" alignItems="center">
           <VStack alignItems="flex-start" spacing={1}>
             <Text color={color} fontWeight="medium" fontSize="xl">
