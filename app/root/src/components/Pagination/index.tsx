@@ -1,6 +1,6 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Center, Button, Flex } from "@chakra-ui/react";
 import RcPagination from "rc-pagination";
-import { IconChevronLeft } from '@tabler/icons'
+import { IconChevronLeft, IconChevronRight, IconChevronsRight, IconChevronsLeft } from '@tabler/icons'
 
 export interface PaginationProps {
   // disabled?: boolean;
@@ -12,19 +12,33 @@ export interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = () => {
   return (
-    <Box
+    <Flex
       as={RcPagination}
       current={1}
       total={100}
-      display="flex"
-      jumpPrevIcon={() => <IconChevronLeft/>}
+      gap="12px"
+      prevIcon={IconChevronLeft}
+      nextIcon={IconChevronRight}
+      jumpNextIcon={IconChevronsRight}
+      jumpPrevIcon={IconChevronsLeft}
+      showPrevNextJumpers
+      showQuickJumper
+      showPrevNextJumpers
+      listStyleType="none"
       itemRender={(
         page: number,
         type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
         element: React.ReactNode) => {
-        return <Button>{page}</Button>
+        // if (type === 'next') {
+        //   return 'next'
+        // }
+        
+        // if (type === 'prev') {
+        //   return <Center h="full" >{element}</Center>
+        // }
+        return <Button >{element}</Button>
       }}
-    ></Box>
+    ></Flex>
   );
 };
 
